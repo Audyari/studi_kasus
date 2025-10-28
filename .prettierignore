@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+build/
+dist/
+
+# Environment
+.env*
+!.env.example
+
+# Logs
+*.log
+
+# System files
+*.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Tests
+coverage/
+__tests__/**/*.test.browser.tsx
