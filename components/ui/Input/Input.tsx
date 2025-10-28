@@ -1,10 +1,10 @@
 import { InputHTMLAttributes } from 'react';
-import { FormComponentProps } from '@/utils/interfaces';
 
 interface InputProps
-  extends InputHTMLAttributes<HTMLInputElement>,
-    FormComponentProps<string> {
+  extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  error?: string;
+  helperText?: string;
 }
 
 const Input = ({

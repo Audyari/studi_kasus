@@ -19,9 +19,9 @@ const Header = () => {
   }, []);
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: 'Home', href: '/' as const },
+    { name: 'About', href: '/about' as const },
+    { name: 'Contact', href: '/contact' as const },
   ];
 
   return (
@@ -60,6 +60,7 @@ const Header = () => {
                     ? 'text-blue-600 font-medium'
                     : 'text-gray-500 hover:text-gray-900'
                 } transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1`}
+                prefetch={false}
               >
                 {item.name}
               </Link>
@@ -128,6 +129,7 @@ const Header = () => {
                 } block px-3 py-2 rounded-md text-base font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
                 aria-current={pathname === item.href ? 'page' : undefined}
                 onClick={() => setMobileMenuOpen(false)}
+                prefetch={false}
               >
                 {item.name}
               </Link>

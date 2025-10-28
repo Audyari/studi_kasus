@@ -1,5 +1,4 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
-import { InteractiveComponentProps } from '@/utils/interfaces';
 
 type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'link';
 type ButtonSize = 'sm' | 'md' | 'lg';
@@ -8,11 +7,15 @@ interface ButtonProps
   extends DetailedHTMLProps<
       ButtonHTMLAttributes<HTMLButtonElement>,
       HTMLButtonElement
-    >,
-    InteractiveComponentProps {
+    > {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  className?: string;
+  children?: React.ReactNode;
+  id?: string;
   'aria-label'?: string;
+  'aria-labelledby'?: string;
+  'aria-describedby'?: string;
   title?: string;
 }
 

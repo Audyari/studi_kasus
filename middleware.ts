@@ -25,6 +25,24 @@ export function middleware(request: NextRequest) {
     'geolocation=(), microphone=(), camera=()'
   );
 
+  // Set Content Security Policy without 'unsafe-inline' and 'unsafe-eval'
+  const cspHeader = [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' blob: data:",
+    "font-src 'self'",
+    "connect-src 'self'",
+    "media-src 'self'",
+    "object-src 'none'",
+    "frame-ancestors 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-src 'self'"
+  ].join('; ');
+
+  response.headers.set('Content-Security-Policy', cspHeader);
+
   return response;
 }
 

@@ -1,11 +1,18 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  experimental: {
-    typedRoutes: true,
-  },
+  typedRoutes: true,
   images: {
-    domains: ['localhost', 'example.com'], // Add domains for image optimization
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+      },
+      {
+        protocol: 'https',
+        hostname: 'example.com',
+      },
+    ],
     formats: ['image/avif', 'image/webp'], // Enable modern image formats
     minimumCacheTTL: 60, // Cache images for at least 60 seconds
   },
@@ -94,6 +101,8 @@ const nextConfig: NextConfig = {
     }
     return config;
   },
+  // Turbopack configuration
+  turbopack: {},
 };
 
 export default nextConfig;
